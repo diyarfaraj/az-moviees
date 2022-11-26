@@ -35,6 +35,7 @@ const SearchList = ({title, res, navigation}: Props) => {
       <Text style={styles.title}>{title}</Text>
       <FlatList
         showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{paddingBottom: 150}}
         data={res}
         keyExtractor={res => res.show.id.toString()}
         renderItem={(itemData: ListRenderItemInfo<Show>) => {
@@ -42,7 +43,7 @@ const SearchList = ({title, res, navigation}: Props) => {
             <TouchableOpacity
               onPress={() =>
                 navigate.navigate(Routes.RESULT_DETAILS, {
-                  id: itemData.item.show.id.toString(),
+                  show: itemData.item,
                 })
               }>
               <SearchItem result={itemData.item} />
@@ -61,9 +62,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginBottom: 5,
   },
-  container: {
-    marginBottom: 10,
-  },
+  container: {},
 });
 
 export default SearchList;

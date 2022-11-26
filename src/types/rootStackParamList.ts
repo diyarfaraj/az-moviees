@@ -1,4 +1,5 @@
+import {Show} from './Show';
 export type RootStackParamList = {
   Search: undefined;
-  ResultDetail: {id: string};
+  ResultDetail: {show: Show};
 };

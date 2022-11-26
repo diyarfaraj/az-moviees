@@ -17,13 +17,18 @@ const SearchItem = ({result}: Props) => {
         />
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{result.show.name}</Text>
-          <Text style={styles.subInfo}>
-            {result.show.premiered.slice(0, 4)} -{' '}
-            {result.show.ended?.slice(0, 4)}
-          </Text>
-          <Text style={styles.subInfo}>
-            {result.show.rating.average} <Icons size={15} name="star" />
-          </Text>
+          {result.show.premiered && (
+            <Text style={styles.subInfo}>
+              {result.show.premiered?.slice(0, 4)} -{' '}
+              {result.show.ended?.slice(0, 4)}
+            </Text>
+          )}
+          {result.show.rating.average && (
+            <Text style={styles.subInfo}>
+              {result.show.rating.average} <Icons size={15} name="star" />
+            </Text>
+          )}
+
           <Text style={styles.subInfo}>{result.show.genres.join(' ')}</Text>
         </View>
       </View>
@@ -36,6 +41,7 @@ const styles = StyleSheet.create({
   container: {
     marginLeft: 15,
     marginBottom: 5,
+    marginTop: 3,
     display: 'flex',
     flexDirection: 'row',
   },
