@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-evenly',
+    justifyContent: 'flex-start',
   },
   image: {
     width: 100,
@@ -60,9 +60,11 @@ const styles = StyleSheet.create({
   name: {
     fontWeight: 'bold',
     fontSize: 20,
+    marginBottom: 5,
   },
   subInfo: {
-    fontSize: 17,
+    fontSize: 15,
+    marginBottom: 7,
   },
   divider: {
     color: 'black',

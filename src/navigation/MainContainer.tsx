@@ -17,8 +17,8 @@ export enum Routes {
   FAVORITES = 'Favorites',
 }
 
-const searchNav = 'search';
-const favoritesNav = 'favorite';
+const searchNav = 'Search';
+const favoritesNav = 'Favorite';
 
 const SearchStack = createNativeStackNavigator();
 const SearchStackScreen = () => (
@@ -39,20 +39,33 @@ function MainContainer() {
       <Tab.Navigator
         initialRouteName={searchNav}
         screenOptions={({route}) => ({
+          tabBarLabelStyle: {
+            fontSize: 11,
+          },
+          tabBarActiveTintColor: '#f5c518',
+          tabBarInactiveTintColor: 'grey',
+
           headerShown: false,
           tabBarIcon: ({focused, color, size}) => {
             let iconName = '';
+
             let rn = route.name;
 
             if (rn === searchNav) {
               iconName = focused ? 'search' : 'search';
+              color = focused ? '#f5c518' : 'grey';
             } else if (rn === favoritesNav) {
               iconName = focused ? 'heart' : 'heart';
+              color = focused ? '#f5c518' : 'grey';
             }
 
-            // You can return any component that you like here!
             // return <Ionicons name={iconName} size={size} color={color} />;
-            return <Icon name={iconName} size={17} />;
+            return <Icon name={iconName} size={20} color={color} />;
+          },
+
+          tabBarStyle: {
+            paddingBottom: 5,
+            paddingTop: 3,
           },
         })}
         /*   tabBarOptions={{
