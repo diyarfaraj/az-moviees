@@ -14,7 +14,7 @@ import useResults from '../hooks/useResults';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../types/rootStackParamList';
 import {Routes} from '../navigation/MainContainer';
-import SearchList from '../componentes/SearchList';
+import ShowLIst from '../componentes/ShowList';
 
 export interface SearchProps {
   navigation: NativeStackNavigationProp<
@@ -39,7 +39,7 @@ const SearchScreen = ({navigation}: SearchProps) => {
         <ActivityIndicator size={'large'} />
       ) : (
         <SafeAreaView>
-          <SearchList title="Result" res={result} navigation={navigation} />
+          <ShowLIst title="Result" res={result} navigation={navigation} />
         </SafeAreaView>
       )}
     </>

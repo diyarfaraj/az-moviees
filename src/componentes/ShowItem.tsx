@@ -7,13 +7,13 @@ import {Divider} from 'react-native-elements';
 interface Props {
   result: Show;
 }
-const SearchItem = ({result}: Props) => {
+const ShowItem = ({result}: Props) => {
   return (
     <>
       <View style={styles.container}>
         <Image
           style={styles.image}
-          source={{uri: result.show.image.original}}
+          source={{uri: result.show.image?.original}}
         />
         <View style={styles.infoContainer}>
           <Text style={styles.name}>{result.show.name}</Text>
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SearchItem;
+export default ShowItem;

@@ -3,9 +3,16 @@ import {View, Text} from 'react-native';
 
 const FavoriteScreen = () => {
   return (
-    <View>
-      <Text>FAvorites screen</Text>
-    </View>
+    <>
+      {/* {errors ? <Text>{errors}</Text> : null}
+    {loading ? (
+      <ActivityIndicator size={'large'} />
+    ) : (
+      <SafeAreaView>
+        <ShowLIst title="Result" res={result} navigation={navigation} />
+      </SafeAreaView>
+    )} */}
+    </>
   );
 };
 

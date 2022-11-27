@@ -2,7 +2,7 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import SearchScreen from '../screens/SearchScreen';
 import Ionicons from 'react-native-vector-icons/';
-import Icon from 'react-native-vector-icons/Feather';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {View} from 'react-native';
@@ -48,7 +48,6 @@ function MainContainer() {
           headerShown: false,
           tabBarIcon: ({focused, color, size}) => {
             let iconName = '';
-
             let rn = route.name;
 
             if (rn === searchNav) {
@@ -59,7 +58,6 @@ function MainContainer() {
               color = focused ? '#f5c518' : 'grey';
             }
 
-            // return <Ionicons name={iconName} size={size} color={color} />;
             return <Icon name={iconName} size={20} color={color} />;
           },
 
@@ -67,14 +65,7 @@ function MainContainer() {
             paddingBottom: 5,
             paddingTop: 3,
           },
-        })}
-        /*   tabBarOptions={{
-          activeTintColor: "tomato",
-          inactiveTintColor: "grey",
-          labelStyle: { paddingBottom: 10, fontSize: 10 },
-          style: { padding: 10, height: 70 },
-        }} */
-      >
+        })}>
         <Tab.Screen name={searchNav} component={SearchStackScreen} />
         <Tab.Screen name={favoritesNav} component={FavoriteScreen} />
       </Tab.Navigator>

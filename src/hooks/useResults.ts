@@ -25,7 +25,7 @@ export default (): [
   };
 
   useEffect(() => {
-    searchApi('girl');
+    searchApi('robot');
   }, []);
 
   return [searchApi, results, errors, loading];

@@ -13,7 +13,7 @@ import {Show} from '../types/Show';
 import {RootStackParamList} from '../types/rootStackParamList';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import SearchItem from './SearchItem';
+import ShowItem from './ShowItem';
 import {Routes} from '../navigation/MainContainer';
 
 interface Props {
@@ -24,7 +24,7 @@ interface Props {
     Routes.RESULT_DETAILS
   >;
 }
-const SearchList = ({title, res, navigation}: Props) => {
+const ShowLIst = ({title, res, navigation}: Props) => {
   if (!res.length) {
     return null;
   }
@@ -46,7 +46,7 @@ const SearchList = ({title, res, navigation}: Props) => {
                   show: itemData.item,
                 })
               }>
-              <SearchItem result={itemData.item} />
+              <ShowItem result={itemData.item} />
             </TouchableOpacity>
           );
         }}
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   container: {},
 });
 
-export default SearchList;
+export default ShowLIst;
