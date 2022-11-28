@@ -14,3 +14,4 @@ Improvements suggestions:
 - Redux for persistence api call
 - use of theme colors
 - testing
+- Has not been tested on IOS device
