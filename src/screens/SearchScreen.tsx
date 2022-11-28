@@ -1,12 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
-  ActivityIndicator,
-  SafeAreaView,
-} from 'react-native';
+import React, {useState} from 'react';
+import {Text, StyleSheet, ActivityIndicator, SafeAreaView} from 'react-native';
 
 import SearchBar from '../componentes/SearchBar';
 import useResults from '../hooks/useResults';

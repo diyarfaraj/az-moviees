@@ -1,8 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {TextInput, View, StyleSheet} from 'react-native';
 import Icons from 'react-native-vector-icons/Feather';
-
-// import Icons from 'react-native-vector-icons/MaterialCommunityIcons'
 
 interface Pops {
   term: string;

@@ -7,7 +7,7 @@ import {Divider} from 'react-native-elements';
 interface Props {
   result: Show;
 }
-const ShowItem = ({result}: Props) => {
+const ShowItemHorizontal = ({result}: Props) => {
   return (
     <>
       <View style={styles.container}>
@@ -16,20 +16,19 @@ const ShowItem = ({result}: Props) => {
           source={{uri: result?.show.image?.original}}
         />
         <View style={styles.infoContainer}>
-          <Text style={styles.name}>{result.show.name}</Text>
-          {result.show.premiered && (
-            <Text style={styles.subInfo}>
-              {result.show.premiered?.slice(0, 4)} -{' '}
-              {result.show.ended?.slice(0, 4)}
-            </Text>
-          )}
+          <Text
+            numberOfLines={1}
+            adjustsFontSizeToFit
+            ellipsizeMode="tail"
+            style={styles.name}>
+            {result.show.name}
+          </Text>
+
           {result.show.rating.average && (
             <Text style={styles.subInfo}>
               {result.show.rating.average} <Icons size={15} name="star" />
             </Text>
           )}
-
-          <Text style={styles.subInfo}>{result.show.genres.join(' ')}</Text>
         </View>
       </View>
       <Divider />
@@ -42,8 +41,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginBottom: 5,
     marginTop: 3,
-    display: 'flex',
-    flexDirection: 'row',
+    flexDirection: 'column',
   },
   infoContainer: {
     marginLeft: 8,
@@ -61,6 +59,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     marginBottom: 5,
+    flexShrink: 1,
   },
   subInfo: {
     fontSize: 15,
@@ -73,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShowItem;
+export default ShowItemHorizontal;

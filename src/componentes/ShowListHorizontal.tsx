@@ -7,13 +7,17 @@ import {
   ListRenderItemInfo,
   TouchableOpacity,
   SafeAreaView,
+  View,
+  Image,
+  useWindowDimensions,
+  Dimensions,
 } from 'react-native';
 import {Show} from '../types/Show';
 import {RootStackParamList} from '../types/rootStackParamList';
 import {useNavigation} from '@react-navigation/native';
 import {StackNavigationProp} from '@react-navigation/stack';
-import ShowItem from './ShowItem';
 import {Routes} from '../navigation/MainContainer';
+import ShowItemHorizontal from './ShowItemHorizontal';
 
 interface Props {
   title: string;
@@ -23,7 +27,9 @@ interface Props {
     Routes.RESULT_DETAILS
   >;
 }
-const ShowLIst = ({title, res}: Props) => {
+const ShowListHorizontal = ({title, res}: Props) => {
+  const width = useWindowDimensions();
+
   if (!res.length) {
     return null;
   }
@@ -31,10 +37,14 @@ const ShowLIst = ({title, res}: Props) => {
   const navigate = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+      <View style={styles.titleContainer}>
+        <Text style={styles.title}>{title}</Text>
+        <Text>See all</Text>
+      </View>
       <FlatList
+        horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{paddingBottom: 150}}
+        contentContainerStyle={{paddingBottom: 10}}
         data={res}
         keyExtractor={res => res?.show?.id.toString()}
         renderItem={(itemData: ListRenderItemInfo<Show>) => {
@@ -45,7 +55,7 @@ const ShowLIst = ({title, res}: Props) => {
                   show: itemData.item,
                 })
               }>
-              <ShowItem result={itemData.item} />
+              <ShowItemHorizontal result={itemData.item} />
             </TouchableOpacity>
           );
         }}
@@ -61,7 +71,15 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginBottom: 5,
   },
+
+  titleContainer: {
+    backgroundColor: '#f5c518',
+    paddingVertical: 5,
+    paddingRight: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   container: {},
 });
 
-export default ShowLIst;
+export default ShowListHorizontal;

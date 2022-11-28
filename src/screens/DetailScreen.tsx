@@ -1,25 +1,21 @@
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  FlatList,
   Image,
   ScrollView,
-  ImageBackground,
   Dimensions,
   useWindowDimensions,
   Pressable,
 } from 'react-native';
 import {useRoute} from '@react-navigation/native';
 import {Show} from '../types/Show';
-import StarRating from 'react-native-star-rating';
 import RenderHtml from 'react-native-render-html';
 import HeartButton from '../componentes/HeartButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const height = Dimensions.get('screen').height;
+var height = Dimensions.get('screen').height;
 var width = Dimensions.get('window').width;
 
 const DetailScreen = () => {
@@ -106,7 +102,6 @@ const DetailScreen = () => {
                   ))}
                 </View>
               )}
-              {/* <StarRating maxStars={10} rating={3} starSize={10} /> */}
 
               <Text style={styles.releaseDate}>
                 {'Release Date: ' + newShow.show.premiered}

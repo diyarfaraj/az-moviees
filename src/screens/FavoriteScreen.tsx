@@ -6,6 +6,7 @@ import ShowLIst from '../componentes/ShowList';
 import {Routes} from '../navigation/MainContainer';
 import {RootStackParamList} from '../types/rootStackParamList';
 import {Show} from '../types/Show';
+import {useFocusEffect} from '@react-navigation/native';
 
 interface FavoriteProps {
   navigation: NativeStackNavigationProp<
@@ -44,23 +45,33 @@ const FavoriteScreen = ({navigation}: FavoriteProps) => {
     }
   };
 
-  useEffect(() => {
-    getFavorite();
-  }, []);
+  useFocusEffect(
+    React.useCallback(() => {
+      getFavorite();
+    }, []),
+  );
 
   return (
-    <ScrollView contentInsetAdjustmentBehavior="automatic">
-      <Text style={styles.header}>🎬 Favorite Movies</Text>
+    <>
+      <View style={styles.headerContainer}>
+        <Text style={styles.header}>🎬 Your favorite shows</Text>
+      </View>
       <SafeAreaView>
-        <ShowLIst title="Result" res={shows} navigation={navigation} />
+        <ShowLIst title="" res={shows} navigation={navigation} />
       </SafeAreaView>
-    </ScrollView>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    paddingVertical: 10,
+    backgroundColor: '#f5c518',
+  },
   header: {
     fontSize: 20,
+
+    textAlign: 'center',
   },
 });
 
